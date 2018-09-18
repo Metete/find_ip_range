@@ -18,13 +18,6 @@ public class Main {
 		// to the arraylist as a seperate element.
 		String[] bytesSplitedArr = beforeSlash.split("\\.");
 
-		/*
-		 *
-		 * ArrayList splitedArray = new ArrayList<>(); { String result =
-		 * beforeSlash.split("\\.")[0]; splitedArray.add(result); //remove the splited
-		 * part and "." e.g. 5. beforeSlash = beforeSlash.replace(result + ".", ""); }
-		 */
-
 		// Convert the input Ip address to binary and concatenate each converted binary
 		// conversion.
 		String concatenatedBinary = "";
@@ -37,20 +30,22 @@ public class Main {
 		// Get the first k bits which is specified by afterSlash var.
 		String networkBits = concatenatedBinary.substring(0, 21);
 
-		String firstClientBits = networkBits;
+		// Concatenate network bits and first client bits( k number 0s)
+		String concatenatedFirstBits = networkBits;
 		for (int i = 0; i < remainingNumOfClientBits; i++) {
-			firstClientBits = firstClientBits.concat("0");
+			concatenatedFirstBits = concatenatedFirstBits.concat("0");
 		}
 
-		String lastClientBits = networkBits;
+		// Concatenate network bits and last client bits( k number 1s)
+		String concatenatedLastBits = networkBits;
 		for (int i = 0; i < remainingNumOfClientBits; i++) {
-			lastClientBits = lastClientBits.concat("1");
+			concatenatedLastBits = concatenatedLastBits.concat("1");
 		}
 
-		// String ipCidr = "172.10.85.60/22";
-		// String ipCidr = "192.168.60.55/20";
-		// String ipCidr = "185.87.24.0/22";
-		System.out.println(convertToBinaryUsingTurnedOnBits(ipCidr));
+		// Convert first and last binaries to decimal
+		int firstDecimal = Integer.parseInt(concatenatedFirstBits, 2);
+		int lastDecimal = Integer.parseInt(concatenatedLastBits, 2);
+		System.out.println(lastDecimal - firstDecimal);
 	}
 
 	/**
