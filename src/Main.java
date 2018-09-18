@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String ipCidr = "5.7.3.2/21";
+		String ipCidr = "5.7.3.0/24";
 
 		String[] split = ipCidr.split("/");
 		// Split after slash and before slash
@@ -28,7 +28,7 @@ public class Main {
 		}
 
 		// Get the first k bits which is specified by afterSlash var.
-		String networkBits = concatenatedBinary.substring(0, 21);
+		String networkBits = concatenatedBinary.substring(0, afterSlash);
 
 		// Concatenate network bits and first client bits( k number 0s)
 		String concatenatedFirstBits = networkBits;
@@ -45,6 +45,8 @@ public class Main {
 		// Convert first and last binaries to decimal
 		int firstDecimal = Integer.parseInt(concatenatedFirstBits, 2);
 		int lastDecimal = Integer.parseInt(concatenatedLastBits, 2);
+		System.out.println(firstDecimal);
+		System.out.println(lastDecimal);
 		System.out.println(lastDecimal - firstDecimal);
 	}
 
