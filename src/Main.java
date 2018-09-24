@@ -45,6 +45,8 @@ public class Main {
 		// Convert first and last binaries to decimal
 		int firstDecimal = Integer.parseInt(concatenatedFirstBits, 2);
 		int lastDecimal = Integer.parseInt(concatenatedLastBits, 2);
+		Integer [] arrDecimals = new Integer[]{firstDecimal, lastDecimal};
+		System.out.println(arrDecimals);
 		System.out.println(firstDecimal);
 		System.out.println(lastDecimal);
 		System.out.println(lastDecimal - firstDecimal);
