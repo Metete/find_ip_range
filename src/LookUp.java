@@ -18,7 +18,7 @@ public class LookUp {
 			concatenatedBinary = concatenatedBinary.concat(myString);
 		}
 		// Convert first and last binaries to decimal
-		int lookUpDecimal = Integer.parseInt(concatenatedBinary, 2);
+		long lookUpDecimal = Long.parseLong(concatenatedBinary, 2);
 		System.out.println(lookUpDecimal);
 	}
 }
